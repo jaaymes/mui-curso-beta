@@ -1,0 +1,16 @@
+/* Animation for loading skeleton */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading-skeleton {
+  animation: pulse 1.5s ease-in-out infinite;
+}

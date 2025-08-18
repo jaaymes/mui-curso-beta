@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dashboard Next.js 15 com Integração DummyJSON
 
-## Getting Started
+Um aplicativo de dashboard moderno e completo construído com Next.js 15, Material-UI v7, e integrado com a API DummyJSON para autenticação real e operações CRUD.
 
-First, run the development server:
+## Funcionalidades
+
+- 🔐 **Autenticação Real** - Login com credenciais de usuários do DummyJSON
+- 👥 **Gerenciamento de Usuários** - Operações CRUD completas para usuários
+- 📦 **Gerenciamento de Produtos** - Catálogo completo de produtos com categorias
+- 📊 **Dashboard** - Estatísticas e análises em tempo real
+- 🎨 **Interface Moderna** - Material-UI v7 com tema claro/escuro
+- 📱 **Design Responsivo** - Funciona em todos os tamanhos de dispositivos
+- ⚡ **Next.js 15** - Recursos mais recentes com Turbopack
+- 🔒 **TypeScript** - Segurança de tipos completa em todo o projeto
+
+## Credenciais de Demonstração
+
+Use estas credenciais reais do DummyJSON para fazer login:
+- Usuário: `emilys` Senha: `emilyspass`
+- Usuário: `michaelw` Senha: `michaelwpass`
+- Usuário: `sophiab` Senha: `sophiabpass`
+
+## Como Começar
+
+Primeiro, execute o servidor de desenvolvimento:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O aplicativo redirecionará para a página de login. Use as credenciais de demonstração acima para acessar o dashboard.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estrutura do Projeto
 
-## Learn More
+- **Autenticação** - Autenticação baseada em JWT com DummyJSON
+- **Gerenciamento de Usuários** - CRUD completo com busca e filtragem
+- **Gerenciamento de Produtos** - Gerenciamento de catálogo com categorias
+- **Dashboard** - Análises com dados reais da API
+- **Sistema de Temas** - Modo claro/escuro com Material-UI
 
-To learn more about Next.js, take a look at the following resources:
+## Stack Tecnológica
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js 15** - Framework React com App Router
+- **React 19** - React mais recente com novos recursos
+- **Material-UI v7** - Componentes React modernos
+- **TypeScript** - Desenvolvimento com segurança de tipos
+- **API DummyJSON** - Integração com backend real
+- **React Hook Form** - Gerenciamento de formulários
+- **Zod** - Validação de esquemas
+- **Jest** - Framework de testes unitários
+- **Cypress** - Testes end-to-end (E2E)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Integração com API
 
-## Deploy on Vercel
+Este aplicativo está completamente integrado com a API [DummyJSON](https://dummyjson.com):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Autenticação** - Login, logout, renovação de token
+- **API de Usuários** - Operações CRUD com paginação
+- **API de Produtos** - Gerenciamento de produtos com categorias
+- **Dados Reais** - Dados ao vivo dos endpoints DummyJSON
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Consulte [DUMMYJSON_INTEGRATION.md](./DUMMYJSON_INTEGRATION.md) para documentação detalhada da integração.
+
+## Desenvolvimento
+
+- `pnpm dev` - Servidor de desenvolvimento com Turbopack
+- `pnpm build` - Build de produção
+- `pnpm start` - Iniciar servidor de produção
+- `pnpm lint` - Executar ESLint
+- `pnpm test` - Executar testes
+- `pnpm cypress:open` - Abrir Cypress para testes E2E
+
+## Implantar na Vercel
+
+A maneira mais fácil de implantar seu aplicativo Next.js é usar a [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) dos criadores do Next.js.
+
+Consulte nossa [documentação de implantação do Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para mais detalhes.

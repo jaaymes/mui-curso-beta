@@ -1,0 +1,48 @@
+# Development Dockerfile with hot reloading
+FROM node:20-alpine AS development
+
+# Install system dependencies
+RUN apk add --no-cache \
+    libc6-compat \
+    dumb-init
+
+# Create app directory and user
+WORKDIR /app
+RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
+
+# Copy package files
+COPY package.json pnpm-lock.yaml* package-lock.json* yarn.lock* ./
+
+# Install dependencies
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install --frozen-lockfile; \
+  else npm install; \
+  fi
+
+# Copy source code
+COPY . .
+
+# Set environment variables
+ENV NODE_ENV=development
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+# Change ownership to nextjs user
+RUN chown -R nextjs:nodejs /app
+USER nextjs
+
+# Expose ports
+EXPOSE 3000 9229
+
+# Health check for development
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:3000/api/health || exit 1
+
+# Use dumb-init for proper signal handling
+ENTRYPOINT ["dumb-init", "--"]
+
+# Start development server with debugging
+CMD ["npm", "run", "dev"]

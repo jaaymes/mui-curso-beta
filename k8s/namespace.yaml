@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mui-beta
+  labels:
+    name: mui-beta
+    app: mui-beta-app
