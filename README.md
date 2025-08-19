@@ -180,34 +180,6 @@ O projeto utiliza a **DummyJSON API** (https://dummyjson.com) como backend compl
 - **Middleware de proteção** para rotas autenticadas
 - **Logout seguro** com limpeza de tokens
 
-### 👥 API de Usuários
-- **30 usuários reais** com dados completos:
-  - Informações pessoais (nome, email, telefone)
-  - Endereços completos com coordenadas
-  - Dados demográficos (idade, gênero)
-  - Informações profissionais
-- **Busca avançada** por múltiplos campos
-- **Filtros dinâmicos** em tempo real
-- **Paginação** com controle de limite
-
-### 📦 API de Produtos
-- **194 produtos** distribuídos em **24 categorias**:
-  - Eletrônicos, roupas, casa, beleza, etc.
-  - Preços, descontos e avaliações
-  - Imagens de alta qualidade
-  - Informações de estoque
-- **Busca por nome** com debounce
-- **Filtros por categoria** dinâmicos
-- **Ordenação** por diferentes critérios
-
-### 📊 Dados do Dashboard
-- **Estatísticas em tempo real** calculadas dinamicamente
-- **Métricas de usuários** por gênero e faixa etária
-- **Análise de produtos** por categoria e preço
-- **Dados para gráficos** com tendências simuladas
-
-Consulte [DUMMYJSON_INTEGRATION.md](./DUMMYJSON_INTEGRATION.md) para documentação detalhada da integração.
-
 ## 🚀 Comandos Disponíveis
 
 ### Desenvolvimento
@@ -289,8 +261,6 @@ pnpm start
 ### Variáveis de Ambiente
 ```env
 NEXT_PUBLIC_API_URL=https://dummyjson.com
-NEXTAUTH_SECRET=your-secret-key
-NEXTAUTH_URL=http://localhost:3000
 ```
 
 ## 📄 Licença
