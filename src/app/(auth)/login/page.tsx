@@ -1,6 +1,5 @@
 import { LoginForm } from "@/components/auth/LoginForm";
 import { setCookie } from "@/lib/cookies";
-import { AUTH_COOKIE_NAMES } from "@/lib/cookie-types";
 import type { DummyLoginResponse } from "@/types";
 import { Dashboard } from "@mui/icons-material";
 import {

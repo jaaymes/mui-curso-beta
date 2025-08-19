@@ -234,8 +234,6 @@ function generateDefaultSalesData(): ChartData[] {
   return data;
 }
 
-
-
 /**
  * Gera atividades recentes otimizadas
  * Reduz chamadas de API usando dados já disponíveis e cache inteligente

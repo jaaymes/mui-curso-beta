@@ -20,11 +20,11 @@ export const metadata: Metadata = {
 };
 
 interface UsersPageProps {
-  searchParams: {
+  searchParams: Promise<{
     search?: string;
     role?: string;
     page?: string;
-  };
+  }>;
 }
 
 /**
@@ -33,9 +33,10 @@ interface UsersPageProps {
  * Os dados são processados no servidor e enviados para os componentes
  */
 export default async function UsersPage({ searchParams }: UsersPageProps) {
-  // Extrai parâmetros de busca da URL
-  const searchTerm = searchParams.search || "";
-  const roleFilter = searchParams.role || "";
+  // Aguardar e extrair parâmetros de busca da URL
+  const params = await searchParams;
+  const searchTerm = params.search || "";
+  const roleFilter = params.role || "";
 
   // Busca todos os dados de usuários no servidor
   const { users, stats, total } = await getUsersData();

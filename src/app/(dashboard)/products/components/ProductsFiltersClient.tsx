@@ -55,7 +55,7 @@ export function ProductsFiltersClient({
     return () => {
       clearTimeout(timer);
     };
-  }, [searchTerm, categoryFilter]);
+  }, [searchTerm, categoryFilter, initialSearch, initialCategory]);
 
   // Atualizar URL com parâmetros de busca
   const updateURL = () => {
@@ -87,7 +87,7 @@ export function ProductsFiltersClient({
 
     // Limpar URL e desabilitar loading após navegação
     router.push("/products");
-    
+
     // Limpar loading após um pequeno delay para permitir a navegação
     setTimeout(() => {
       setIsLoading(false);

@@ -16,12 +16,12 @@ import {
 // };
 
 interface ProductsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     search?: string;
     category?: string;
     page?: string;
     limit?: string;
-  };
+  }>;
 }
 
 /**
@@ -31,11 +31,12 @@ interface ProductsPageProps {
 export default async function ProductsPage({
   searchParams,
 }: ProductsPageProps) {
-  // Extrair parâmetros de busca
-  const searchTerm = searchParams.search || "";
-  const categoryFilter = searchParams.category || "";
-  const page = parseInt(searchParams.page || "1", 10);
-  const limit = parseInt(searchParams.limit || "30", 10);
+  // Aguardar e extrair parâmetros de busca
+  const params = await searchParams;
+  const searchTerm = params.search || "";
+  const categoryFilter = params.category || "";
+  const page = parseInt(params.page || "1", 10);
+  const limit = parseInt(params.limit || "30", 10);
 
   // Buscar dados no servidor aplicando filtros
   let products: DummyProduct[] = [];
@@ -108,8 +109,8 @@ export default async function ProductsPage({
           {/* Filtros - Componente Client-side para interatividade */}
           <Suspense fallback={<Box sx={{ p: 3, bgcolor: "background.paper", borderRadius: 2, border: 1, borderColor: "divider", mb: 3 }}><Typography>Carregando filtros...</Typography></Box>}>
             <ProductsFiltersClient
-              searchTerm={searchParams.search || ""}
-              categoryFilter={searchParams.category || ""}
+              searchTerm={params.search || ""}
+              categoryFilter={params.category || ""}
               categories={categories}
             />
           </Suspense>
